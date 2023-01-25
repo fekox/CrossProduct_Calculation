@@ -175,9 +175,9 @@ void InitVectors() {
 	cout << "\n";
 
 	SliceVectors();
-	cout << "Point 1: (X: " << p1.x << ", Y: " << p1.y << ", Z: " << p1.z << ")\n";
-	cout << "Point 2: (X: " << p2.x << ", Y: " << p2.y << ", Z: " << p2.z << ")\n";
-	cout << "Point 3: (X: " << p3.x << ", Y: " << p3.y << ", Z: " << p3.z << ")\n";
+	cout << "Punto 1: (X: " << p1.x << ", Y: " << p1.y << ", Z: " << p1.z << ")\n";
+	cout << "Punto 2: (X: " << p2.x << ", Y: " << p2.y << ", Z: " << p2.z << ")\n";
+	cout << "Punto 3: (X: " << p3.x << ", Y: " << p3.y << ", Z: " << p3.z << ")\n";
 
 	cout << "\n";
 	CalculateArea();
