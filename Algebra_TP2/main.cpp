@@ -195,9 +195,9 @@ void Draw() {
 	DrawLine3D(x.start, x.end, RED);
 
 	// Mis tres vectores generados random.
-	DrawLine3D(vA.start, vA.end, ORANGE);
+	DrawLine3D(vA.start, vA.end, BEIGE);
 	DrawLine3D(vB.start, vB.end, PURPLE);
-	DrawLine3D(vC.start, vC.end, YELLOW);
+	DrawLine3D(vC.start, vC.end, GREEN);
 
 	DrawSphere(p1, 0.2, BLUE);
 	DrawSphere(p2, 0.2, BLUE);
