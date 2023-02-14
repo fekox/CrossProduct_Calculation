@@ -230,7 +230,7 @@ void CalculateArea() //Se ocupa de calcular el perimetro y area de las caras.
 	cout << "El area es: " << area3 << "\n";
 	cout << "\n";
 
-	cout << "El area total es: " << (area1 + area2 + area3) << "!\n";
+	cout << "El area total es: " << (area1 + area2 + area3) << "\n";
 }
 
 void SliceVectors() //Agarra al vector mas bajo y corta a los demas a esa altura.
