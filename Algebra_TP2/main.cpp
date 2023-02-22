@@ -13,12 +13,14 @@ struct Vector
 const int windowWidth = 800;
 const int windowHeight = 450;
 
-Vector x; //Dibuja un vector default en la punta de la piramide.
+//Variable que dibuja el primer vector de referencia. (Rojo)
+Vector x;
 
-Vector vA;
-Vector vB;
-Vector vC;
+Vector vA; //Vector 1. (Beige).
+Vector vB; //Vector 2. (Morado).
+Vector vC; //Vector 3. (Verde).
 
+//Puntos en donde se realiza el corte para trazar la linea imaginaria y formar la piramide. (Azul).
 Vector3 p1;
 Vector3 p2;
 Vector3 p3;
@@ -60,7 +62,7 @@ int main()
 
 void Init() 
 {
-	//Init camara.
+	//Inicializa la camara.
 	SetTargetFPS(30);
 
 	camera.position = Vector3{ 0.0f, 0.0f, 20.0f };
@@ -90,16 +92,17 @@ void Draw()
 	BeginDrawing();
 	ClearBackground(BLACK);
 
-	BeginMode3D(camera); // 3D
+	BeginMode3D(camera); //Modo 3D de la camara.
 
 	//Dibuja el vector default en la punta de la piramide.
 	DrawLine3D(x.start, x.end, RED);
 
-	//Los tres vectores generados random.
+	//Dibuja los tres vectores generados random.
 	DrawLine3D(vA.start, vA.end, BEIGE);
 	DrawLine3D(vB.start, vB.end, PURPLE);
 	DrawLine3D(vC.start, vC.end, GREEN);
 
+	//Dibuja los tres puntos azules.
 	DrawSphere(p1, 0.2, BLUE);
 	DrawSphere(p2, 0.2, BLUE);
 	DrawSphere(p3, 0.2, BLUE);
@@ -173,7 +176,7 @@ void CreateThirdVector() //Crea el tercer vector haciendo producto cruz de los a
 
 float CalculateTriangleArea(float a, float b, float c) //Calcula el area de un triangulo pasandole la distancia de cada lado.
 {
-	//Resuelto usando la formula de Heron.
+	//Resuelto usando la formula de Heron. (Permite calcular el area de un triangulo utilizando las longitudes de su tres lados).
 
 	float s = ((a + b + c) / 2);
 	
@@ -187,7 +190,7 @@ float GetDistance(Vector3 point1, Vector3 point2) //Devuelve la distancia entre 
 	return pow((pow((point2.x - point1.x), 2) + pow((point2.y - point1.y), 2) + pow((point2.z - point1.z), 2)), 0.5);
 }
 
-void CalculateArea() //Se ocupa de calcular el perimetro y area de las caras.
+void CalculateArea() //Se ocupa de calcular el area.
 {
 	Vector3 p0 = { 0, 0, 0 };
 
@@ -235,7 +238,7 @@ void CalculateArea() //Se ocupa de calcular el perimetro y area de las caras.
 
 void SliceVectors() //Agarra al vector mas bajo y corta a los demas a esa altura.
 {
-
+	//Si el vector A es mas corto que el vector B el final del vector A se utiliza como referencia para hacer el corte.
 	if (vA.end.y < vB.end.y) 
 	{
 		p1 = vA.end;
@@ -249,6 +252,7 @@ void SliceVectors() //Agarra al vector mas bajo y corta a los demas a esa altura
 		p3.z = (vC.end.z / vC.end.y) * p2.y;
 	}
 	
+	//Sino se utiliza el vector B.
 	else
 	{
 		p1 = vB.end;
